@@ -28,34 +28,42 @@ const employeeQuestions = [{
     type: "input",
     message: "E-mail address:",
     name: "email"
-}];
-
-const managerQuestions = [{
+},
+{
+    when: input => {
+        return input.role == "Manager"
+    },
     type: "input",
     message: "Office Number:",
     name: "office"
 },
 {
-    type: "list",
-    message: "Job title:",
-    choices: ["Manager", "Engineer", "Intern"],
-    name: "title"
-}];
-
-const engineerQuestions = [{
+    when: input => {
+        return input.role == "Engineer"
+    },
     type: "input",
-    message: "GitHub username:",
+    message: "GitHub Username:",
     name: "github"
-}];
-
-const internQuestions = [{
+},
+{
+    when: input => {
+        return input.role == "Intern"
+    },
     type: "input",
-    message: "School:",
-    name: "school"
+    message: "School Name:",
+    name: "school",
+},
+{
+    type: "list",
+    message: "New Hire?",
+    choices: ["Yes", "No"],
+    name: "newEmployee",
+
 }];
 
+const employeeArray = [];
 
-
+function render 
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
