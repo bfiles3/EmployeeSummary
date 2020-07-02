@@ -1,0 +1,19 @@
+{
+  "name": "employeesummary",
+  "version": "1.0.0",
+  "description": "A node js template that creates an HTML page filled with employee information, based on user responses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bfiles3/EmployeeSummary.git"
+  },
+  "author": "Brittany Files",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bfiles3/EmployeeSummary/issues"
+  },
+  "homepage": "https://github.com/bfiles3/EmployeeSummary#readme"
+}
