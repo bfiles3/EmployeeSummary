@@ -30,8 +30,14 @@ const employeeQuestions = [{
     name: "email"
 },
 {
+    type: "list",
+    message: "Job Title:",
+    choices: ["Manager", "Engineer", "Intern"],
+    name: "title"
+},
+{
     when: input => {
-        return input.role == "Manager"
+        return input.title == "Manager"
     },
     type: "input",
     message: "Office Number:",
@@ -39,7 +45,7 @@ const employeeQuestions = [{
 },
 {
     when: input => {
-        return input.role == "Engineer"
+        return input.title == "Engineer"
     },
     type: "input",
     message: "GitHub Username:",
@@ -47,7 +53,7 @@ const employeeQuestions = [{
 },
 {
     when: input => {
-        return input.role == "Intern"
+        return input.title == "Intern"
     },
     type: "input",
     message: "School Name:",
@@ -62,7 +68,9 @@ const employeeQuestions = [{
 }];
 
 const employeeArray = [];
-
+function createTeam(){
+    inquirer.prompt(employeeQuestions).then
+}
 function render 
 
 // After the user has input all employees desired, call the `render` function (required

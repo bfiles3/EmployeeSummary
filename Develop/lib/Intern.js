@@ -6,7 +6,12 @@ class Intern extends Employee {
         super (name, id, email);
         this.school = school;
     }
+schoolInput(){
+    return this.school;
 }
+titleInput(){
+    return "Intern";
+}};
 
 
 

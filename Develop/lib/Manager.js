@@ -6,7 +6,12 @@ class Manager extends Employee {
         super (name, id, email);
         this.office = office;
     }
+officeInput(){
+    return this.office;
 }
+titleInput(){
+    return "Manager";
+}};
 
 
 

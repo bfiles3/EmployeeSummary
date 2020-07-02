@@ -6,7 +6,12 @@ class Engineer extends Employee {
         super (name, id, email);
         this.git = github
     }
+gitInput(){
+    return this.git;
 }
+titleInput(){
+    return "Engineer";
+}};
 
 
 
