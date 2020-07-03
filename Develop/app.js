@@ -6,11 +6,11 @@ const path = require("path");
 const fs = require("fs");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const outputPath = path.join(OUTPUT_DIR, "main.html");
 
 const render = require("./lib/htmlRenderer");
 const employeeArray = [];
-
+createTeam();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -21,25 +21,36 @@ inquirer.prompt ([
     message: "Job Title:",
     choices: ["Manager", "Engineer", "Intern"],
     name: "title"
-    }
+    },
 ])
 .then(function(input){
     if (input.title === "Manager"){
+    managerInfo()
+}
+    if (input.title === "Engineer"){
+    engineerInfo()
+}
+    if (input.title === "Intern"){
+    internInfo()
+}
+})
+
+function managerInfo(){
         inquirer.prompt ([
             {
                 type: "input",
                 message: "Name:",
-                name: "name"
+                name: "managerName"
             },
             {
                 type: "input",
                 message: "Employee ID:",
-                name: "id"
+                name: "managerID"
             },
             {
                 type: "input",
                 message: "Email Address:",
-                name: "email"
+                name: "managerEmail"
             },
             {
                 type: "input",
@@ -47,23 +58,29 @@ inquirer.prompt ([
                 name: "office"
             }
         ])
-    }
-    if (input.title === "Engineer"){
+        .then(function(info) {
+            const manager = new Manager (info.managerName,info.managerID,info.managerEmail,info.office, employeeArray.length)
+            employeeArray.push(manager)
+            newHire();
+    },
+
+
+ function engineerInfo(){
         inquirer.prompt ([
             {
                 type: "input",
                 message: "Name:",
-                name: "name"
+                name: "engineerName"
             },
             {
                 type: "input",
                 message: "Employee ID:",
-                name: "id"
+                name: "engineerID"
             },
             {
                 type: "input",
                 message: "Email Address:",
-                name: "email"
+                name: "engineerEmail"
             },
             {
                 type: "input",
@@ -71,33 +88,45 @@ inquirer.prompt ([
                 name: "github"
             }
         ])
-    }
-    if (input.title === "Intern"){
+ },
+
+function internInfo(){
         inquirer.prompt ([
             {
                 type: "input",
                 message: "Name:",
-                name: "name"
+                name: "internName"
             },
             {
                 type: "input",
                 message: "Employee ID:",
-                name: "id"
+                name: "internID"
             },
             {
                 type: "input",
                 message: "Email Address:",
-                name: "email"
+                name: "internEmail"
             },
             {
                 type: "input",
                 message: "School:",
                 name: "school"
-            }
+            },
+            
         ])
-    }
-})
+    })
 }
+// .then(function(info) {
+//     const manager = new Manager (info.managerName,info.managerID,info.managerEmail,info.office, employeeArray.length)
+//     const engineer = new Engineer (info.engineerNameinfoengineerID,info.engineerEmail,info.github, employeeArray.length)
+//     const intern = new Intern (info.internName, info.internID, info.internEmail,info.school, employeeArray.length)
+//     employeeArray
+//     createTeam();
+// })
+
+
+
+function newHire(){
 inquirer.prompt([
 {
     type: "list",
@@ -111,14 +140,17 @@ inquirer.prompt([
             createTeam()
         }
         else{
-            const team = render(employeeArray)
-            fs.writeFile(outputPath, team, function(err){
+            const main = render(employeeArray)
+            fs.writeFile(outputPath, main, function(err){
                 if (err){
                     return console.log(err);
                 }
             })
         }
     })
+}}
+
+
 
 
 
