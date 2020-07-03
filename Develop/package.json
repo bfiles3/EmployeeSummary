@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/bfiles3/EmployeeSummary/issues"
   },
-  "homepage": "https://github.com/bfiles3/EmployeeSummary#readme"
+  "homepage": "https://github.com/bfiles3/EmployeeSummary#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^7.3.0",
+    "path": "^0.12.7"
+  }
 }
