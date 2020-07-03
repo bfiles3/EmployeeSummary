@@ -8,6 +8,8 @@
 *  [Questions](#questions)
 ## Description
 [Repository](https://github.com/bfiles3/EmployeeSummary)
+
+
 This assignment was to create an app in command line that would use input to create an HTML page that consists of employees on a development team. There is three categories, which are all employees: Manager, Engineer, and Intern. They all have specific questions that are related to their position, and they all have to be saved and rendered to the HTML page.
 
 The first task was to create a package.json using npm's init function in command line. After the package was created, I created a class for each employee, and a constructor within those classes to hold the information. I created a function in the employee file to export the common questions between all the employees. I then created specific functions in each individual employee page that related to their individual titles and questions that are specific to those particular employees.
